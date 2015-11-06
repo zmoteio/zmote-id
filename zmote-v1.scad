@@ -34,8 +34,8 @@ tsw = 10; // width
 
 // ---------------------------------------------------------------------------------------
 
-rotate([180, 0, 0]) dome();
-//base();
+//rotate([180, 0, 0]) dome();
+base();
 
 //!difference() { union() { %circuit(); PCBbed("spacer"); } PCBbed("cut"); }
 
@@ -111,7 +111,7 @@ module base() {
 		PCBbed("cut");
 //		PCBcut();
 		// TSOP
-		translate([-6+tt[0], tsw/-2-tol, 0]) cube([6, tsw+2*tol, 3]);
+		translate([-6+tt[0], tsw/-2-2*tol, 0]) cube([6, tsw+4*tol, 3]);
 		TSOPproc() TSOPcut();
 		// Limits
 		if (release) difference() {
@@ -200,8 +200,8 @@ module pfTop(x=33, y=0) {
 module pfBottom(x=33, y=0) {
 	render(convexity = 1)
 	rotate_extrude(convexity=10)
-	translate([x-2, y-3, 0])
-	polygon([[2.3,3],[1.4,3],[1.5,3.5],[1.8,5],[1.5,5.5],[0.6,5.5],[0.3,5],[0,3.5],[0,2.5],[0.8,1.1],[2.3,-0]]);
+	translate([x-3, y-5, 0])
+	polygon([[3.3,5],[2.2,5],[2.3,5.5],[2.6,7],[2.3,7.5],[1,7.5],[0,5.5],[0,4.5],[2.5,0]]);
 }
 // ---------------------------------------------------------------------------------------
 
